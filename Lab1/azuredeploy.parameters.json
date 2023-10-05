@@ -1,0 +1,15 @@
+{
+    "sAccName": {
+      "value": "mystorageaccount"
+    },
+    "webAppName": {
+      "value": "mywebapp"
+    },
+    "location": {
+      "value": "West Europe"
+    },
+    "appServicePlanName": {
+      "value": "myappserviceplan"
+    }
+  }
+  
