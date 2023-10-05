@@ -10,6 +10,6 @@ This guide also depends on a valid azure subscribtion and the azure account must
 # Command for creating resource group and deployment
 
 <pre>
-az deployment group create --resource-group MyResourceGroup --template-file azuredeploy.json --parameters azuredeploy.parameters.json
+```az deployment group create --resource-group MyResourceGroup --template-file azuredeploy.json --parameters azuredeploy.parameters.json```
 <pre>
 
