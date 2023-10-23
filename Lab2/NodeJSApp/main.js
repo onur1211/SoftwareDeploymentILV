@@ -7,6 +7,7 @@
 var express = require('express');
 var path = require('path');
 var session = require('express-session');
+const authenticator = require('./auth.js'); 
 
 var app = module.exports = express();
 
@@ -39,23 +40,6 @@ var users = {
   admin: { name: 'admin', password: 'admin123' }
 };
 
-// Authenticate using our plain-object database
-function authenticate(name, pass, fn) {
-  if (!module.parent) console.log('Authenticating %s:%s', name, pass);
-  var user = users[name];
-  // query the users 'db' for the given username
-  if (!user) return fn(null, null)
-
-  if (user.name === name && user.password === pass) {
-    console.log("Authentication succeeded: ", name, pass);
-    return fn(null, user);
-  }
-  else {
-    console.log("Authentication failed: ", name, pass);
-    return fn(null, null);
-  }
-}
-
 function restrict(req, res, next) {
   if (req.session.user) {
     next();
@@ -86,7 +70,7 @@ app.get('/login', function(req, res){
 });
 
 app.post('/login', function (req, res, next) {
-  authenticate(req.body.username, req.body.password, function(err, user){
+  authenticator.authenticate(req.body.username, req.body.password, function(err, user){
     if (err) return next(err);
     if (user) {
       // Regenerate session when signing in
