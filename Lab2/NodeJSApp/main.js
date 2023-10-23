@@ -46,7 +46,7 @@ function authenticate(name, pass, fn) {
   // query the users 'db' for the given username
   if (!user) return fn(null, null)
 
-  if (user.name == name && user.password == pass) {
+  if (user.name === name && user.password === pass) {
     console.log("Authentication succeeded: ", name, pass);
     return fn(null, user);
   }
