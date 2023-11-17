@@ -1,0 +1,34 @@
+# Command: docker-compose up -d
+# -d for no log files in the terminal
+services:
+  # MySQL Service
+  mysql:
+    image: mysql:latest
+    container_name: wordpress-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: your_mysql_root_password
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress_user
+      MYSQL_PASSWORD: your_wordpress_db_password
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  # WordPress Service
+  wordpress:
+    image: wordpress:latest
+    container_name: wordpress
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: wordpress_user
+      WORDPRESS_DB_PASSWORD: your_wordpress_db_password
+    depends_on:
+      - mysql
+    volumes:
+      - wordpress_data:/var/www/html
+# Volumes
+volumes:
+  mysql_data:
+  wordpress_data:
