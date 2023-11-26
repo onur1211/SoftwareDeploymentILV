@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  wordpress:
+    build:
+      context: .
+      dockerfile: Dockerfile.wordpress
+    ports:
+      - "8080:80"  # Webserver-Port
+
+    volumes:
+      - ./wordpress:/var/www/html  # Persistente Volumes für WordPress
+
+  mysql:
+    build:
+      context: .
+      dockerfile: Dockerfile.mysql
+    ports:
+      - "3306:3306"  # MySQL-Port
+
+    volumes:
+      - ./mysql:/var/lib/mysql  # Persistente Volumes für MySQL

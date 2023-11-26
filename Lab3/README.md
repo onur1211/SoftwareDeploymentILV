@@ -2,9 +2,11 @@
 Diese Readme Datei dokumentiert die Aufgabe für Lab3 Teil1 und Teil2.
 
 # Teil 1
-Vorraussetzung:
-Docker und Docker Compose installieren:
+Vorraussetzungen:
+
 Docker und Docker Compose müssen auf dem System installiert sein.
+
+Dieses Verzeichnis enthält eine 'docker-compose.yml' Datei.
 
 # Docker-Compose-Befehl ausführen:
 
@@ -33,4 +35,29 @@ Dies stoppt und entfernt die gestarteten Container, Netzwerke und Volumes gemä�
 
 
 # Teil 2
-...
+Dieses Verzeichnis enthält 2 Dockerfiles und eine Docker-Compose-Datei, um WordPress und MySQL in Docker-Containern bereitzustellen. Die Container sind auf Basis von Debian erstellt und ermöglichen die Persistenz von Daten über Volumes.
+
+# Dateien:
+
+Dockerfile.wordpress: Dockerfile für das WordPress-Image.
+Dockerfile.mysql: Dockerfile für das MySQL-Image.
+docker-compose.yml: Docker-Compose-Datei zum Starten und Verknüpfen der Container.
+my.cnf: MySQL-Konfigurationsdatei.
+
+# Docker-Images erstellen:
+
+docker build -t wordpress_debian -f Dockerfile.wordpress
+docker build -t mysql_debian -f Dockerfile.mysql
+
+# Docker-Container starten:
+
+docker-compose up -d
+Dieser Befehl erstellt und startet die Docker-Container im Hintergrund.
+
+# Zugriff auf WordPress:
+
+http://localhost:8080 im Browser eingeben
+
+# Ports:
+WordPress ist auf http://localhost:8080 verfügbar.
+MySQL ist auf Port 3306 verfügbar.

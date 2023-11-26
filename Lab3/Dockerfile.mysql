@@ -1,0 +1,15 @@
+# Verwende das offizielle Debian-Image als Basis
+FROM debian:bullseye-slim
+
+# Installiere MySQL
+RUN apt-get update && \
+    apt-get install -y mysql-server
+
+# Expose den Port für die MySQL-Verbindung
+EXPOSE 3306
+
+# Kopiere den MySQL-Startbefehl in den Container
+COPY ./my.cnf /etc/mysql/my.cnf
+
+# Starte MySQL beim Containerstart
+CMD ["mysqld"]
