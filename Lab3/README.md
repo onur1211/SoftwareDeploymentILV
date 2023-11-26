@@ -1,7 +1,7 @@
 # Lab3 Onuralp Mete
 Diese Readme Datei dokumentiert die Aufgabe für Lab3 Teil1 und Teil2.
 
-# Teil 1
+# Lab3 Teil 1
 Vorraussetzungen:
 
 Docker und Docker Compose müssen auf dem System installiert sein.
@@ -34,7 +34,7 @@ docker-compose down
 Dies stoppt und entfernt die gestarteten Container, Netzwerke und Volumes gemäß der docker-compose.yml-Datei.
 
 
-# Teil 2
+# Lab3 Teil 2
 Dieses Verzeichnis enthält 2 Dockerfiles und eine Docker-Compose-Datei, um WordPress und MySQL in Docker-Containern bereitzustellen. Die Container sind auf Basis von Debian erstellt und ermöglichen die Persistenz von Daten über Volumes.
 
 # Dateien:
